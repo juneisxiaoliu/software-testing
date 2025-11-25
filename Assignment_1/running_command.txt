@@ -1,0 +1,3 @@
+pytest online_shopping_cart/tests/test_get_products.py -v
+pytest online_shopping_cart/tests/test_checkout.py -v
+pytest online_shopping_cart/tests/test_check_cart.py -v
