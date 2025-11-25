@@ -1,0 +1,5 @@
+The entry point for this package is the `assignment_one_app.py` file located in the root directory. This file contains the primary logic and functions that drive the application's core functionality. To run the application, execute the following command in your terminal:
+
+```bash
+python assignment_one_app.py
+```
