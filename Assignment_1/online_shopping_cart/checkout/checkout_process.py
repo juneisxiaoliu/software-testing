@@ -1,5 +1,6 @@
 from online_shopping_cart.checkout.shopping_cart import ShoppingCart
 from online_shopping_cart.product.product_data import get_products
+from online_shopping_cart.user.user_data import UserDataManager
 from online_shopping_cart.user.user_interface import UserInterface
 from online_shopping_cart.product.product import Product
 from online_shopping_cart.user.user_logout import logout
@@ -111,7 +112,19 @@ def checkout_and_payment(login_info) -> None:
             if check_cart(user=user, cart=global_cart) is False:
                 continue  # The user has selected not to check out their cart
             else:
-                pass  # TODO: Task 4: update the wallet information in the users.json file
+                #check_cart does not return false if the user cannot check out because of invalid balance
+                #pass  # TODO: Task 4: update the wallet information in the users.json file
+                new_balance = user.wallet - global_cart.get_total_price()
+                if new_balance < 0:
+                    continue
+                else:
+                    users = UserDataManager.load_users()
+                    for oneuser in users:
+                        if oneuser['username'] == user.name:
+                            oneuser['wallet'] = new_balance
+                    UserDataManager.save_users(users)
+
+
         elif choice.startswith('l'):
             if logout(cart=global_cart):
                 exit(0)  # The user has logged out
