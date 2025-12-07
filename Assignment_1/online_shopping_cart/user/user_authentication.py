@@ -33,7 +33,8 @@ class UserAuthenticator:
                     print('Successfully logged in.')
                     return {
                         'username': entry['username'],
-                        'wallet': entry['wallet']
+                        'wallet': entry['wallet'],
+                        'cards': entry.get('cards', [])
                     }
                 break
 
@@ -44,12 +45,13 @@ class UserAuthenticator:
         return None
 
     @staticmethod
-    def register(username, password, data) -> None:
-         #Task 1: register username and password as new user to file with 0.0 wallet funds
-         new_user = {
+    def register(username, password, data, cards = None) -> None:
+        if cards is None: cards = []
+        new_user = {
              "username": username,
              "password": password,
+             "cards": cards,
              "wallet": 0.0
          }
-         data.append(new_user)
-         UserDataManager.save_users(data)
+        data.append(new_user)
+        UserDataManager.save_users(data)

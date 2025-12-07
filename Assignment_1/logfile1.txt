@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.10.8, pytest-8.4.2, pluggy-1.6.0 -- /Library/Frameworks/Python.framework/Versions/3.10/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/juneliu/PycharmProjects/software-testing/Assignment_1
+plugins: anyio-4.7.0
+collecting ... collected 11 items / 6 deselected / 5 selected
+
+online_shopping_cart/tests/test_assignment2_task1.py::test_1_old_checkout_wallet_success PASSED [ 20%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_2_old_checkout_insufficient_funds PASSED [ 40%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_3_old_checkout_empty_cart PASSED [ 60%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_4_old_register_logic PASSED [ 80%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_5_old_cart_add_item PASSED [100%]
+
+======================= 5 passed, 6 deselected in 0.31s ========================

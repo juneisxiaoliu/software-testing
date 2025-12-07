@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.10.8, pytest-8.4.2, pluggy-1.6.0 -- /Library/Frameworks/Python.framework/Versions/3.10/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/juneliu/PycharmProjects/software-testing/Assignment_1
+plugins: anyio-4.7.0
+collecting ... collected 11 items
+
+online_shopping_cart/tests/test_assignment2_task1.py::test_1_old_checkout_wallet_success PASSED [  9%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_2_old_checkout_insufficient_funds PASSED [ 18%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_3_old_checkout_empty_cart PASSED [ 27%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_4_old_register_logic PASSED [ 36%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_5_old_cart_add_item PASSED [ 45%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_6_new_manage_cards_add PASSED [ 54%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_7_new_register_with_cards PASSED [ 63%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_8_new_user_class_cards_init PASSED [ 72%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_9_new_checkout_credit_card_success PASSED [ 81%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_10_new_checkout_credit_card_no_cards PASSED [ 90%]
+online_shopping_cart/tests/test_assignment2_task1.py::test_11_new_checkout_credit_card_invalid_selection PASSED [100%]
+
+============================== 11 passed in 0.31s ==============================

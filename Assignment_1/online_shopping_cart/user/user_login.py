@@ -29,7 +29,27 @@ def login() -> dict[str, str | float] | None:
         if register_choice.lower() in ['yes', 'y']:
             new_password = UserInterface.get_user_input(prompt="Enter a password for registration: ")
             if PasswordValidator.is_valid(new_password):
-                UserAuthenticator.register(username, new_password, user_data)
+                # Task 1: extend registration to include credit card details
+                cards_list = []
+                print("\n--- Credit Card Setup ---")
+                while True:
+                    want_card = UserInterface.get_user_input(prompt="Do you want to add a credit card? (y/n): ")
+                    if want_card.lower() not in ['y', 'yes']:
+                        break  # Exit the loop if the user doesn't want to add more cards
+                    c_num = UserInterface.get_user_input(prompt="Card Number: ")
+                    c_expiry = UserInterface.get_user_input(prompt="Expiry Date (MM/YY): ")
+                    c_name = UserInterface.get_user_input(prompt="Name on Card: ")
+                    c_cvv = UserInterface.get_user_input(prompt="CVV: ")
+                    print(f"Adding Card #{len(cards_list) + 1}:")
+                    new_card = {
+                        "card_number": c_num,
+                        "expiry": c_expiry,
+                        "name": c_name,
+                        "cvv": c_cvv
+                    }
+                    cards_list.append(new_card)
+                    print("Card added successfully!")
+                UserAuthenticator.register(username, new_password, user_data, cards=cards_list)
                 print("Registration successful! You are now logged in.")
                 return {
                     "username": username,
@@ -57,3 +77,9 @@ def login() -> dict[str, str | float] | None:
         return is_authentic_user
 
     return None
+if __name__ == "__main__":
+    # Simple test for manual login
+    print("--- Starting Manual Login Test ---")
+    result = login()
+    if result:
+        print(f"\n[Debug Info] Logged in User Data: {result}")
